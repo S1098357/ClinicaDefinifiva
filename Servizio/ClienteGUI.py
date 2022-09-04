@@ -273,8 +273,10 @@ class ClienteGUI:
         self.appoggioDatetime=datetime.strptime(giorno,'%y-%m-%d')
         if self.appoggioDatetime.weekday()>datetime.now().weekday():
             self.appoggio=self.appoggioDatetime.weekday()-datetime.now().weekday()
+        elif self.appoggioDatetime.weekday()<datetime.now().weekday():
+            self.appoggio=6-(datetime.now().weekday()-self.appoggioDatetime.weekday())
         else:
-            self.appoggio=datetime.now().weekday()-self.appoggioDatetime.weekday()+2
+            self.appoggio=0
         self.richiediPrenotazione(self.sistema.listaPrenotazioni, self.sistema.listaDottori)
 
     def selezionaGiornoIndietro(self):
