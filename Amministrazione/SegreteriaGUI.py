@@ -136,7 +136,8 @@ class SegreteriaGUI:
 
     def rimuoviCC(self):
         self.eliminaCCGUI.close()
-        self.segreteria.eliminaCartellaClinica(self.eliminaCCGUI.comboBox.currentText())
+        if self.eliminaCCGUI.comboBox.currentText()!='':
+            self.segreteria.eliminaCartellaClinica(self.eliminaCCGUI.comboBox.currentText())
         self.menu.show()
 
     def stampaDocumenti(self):
